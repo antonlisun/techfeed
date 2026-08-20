@@ -1,0 +1,54 @@
+{
+  "_comment": [
+    "Add a feed by appending an object with a name and url. Everything else is optional:",
+    "  category  groups the source in the filter panel (default: 'News')",
+    "  color     the avatar colour (default: derived from the name, stable across runs)",
+    "  enabled   set false to keep a feed configured but out of the build (default: true)",
+    "Both RSS 2.0 and Atom are handled. Restart the server or re-run build.py to pick up changes."
+  ],
+
+  "sources": [
+    { "name": "BleepingComputer",   "url": "https://www.bleepingcomputer.com/feed/",              "category": "News", "color": "#1d7ec4" },
+    { "name": "The Hacker News",    "url": "https://feeds.feedburner.com/TheHackersNews",         "category": "News", "color": "#d93025" },
+    { "name": "Dark Reading",       "url": "https://www.darkreading.com/rss.xml",                 "category": "News", "color": "#c2410c" },
+    { "name": "SecurityWeek",       "url": "https://www.securityweek.com/feed/",                  "category": "News", "color": "#0f766e" },
+    { "name": "The Register",       "url": "https://www.theregister.com/security/headlines.atom", "category": "News", "color": "#e2361a" },
+    { "name": "Ars Technica",       "url": "https://feeds.arstechnica.com/arstechnica/index",     "category": "News", "color": "#ff4e00" },
+    { "name": "The Record",         "url": "https://therecord.media/feed",                        "category": "News", "color": "#7c3aed" },
+    { "name": "Help Net Security",  "url": "https://www.helpnetsecurity.com/feed/",               "category": "News", "color": "#0b6bcb" },
+    { "name": "Cybersecurity Dive", "url": "https://www.cybersecuritydive.com/feeds/news/",       "category": "News", "color": "#046a38" },
+
+    { "name": "CISA Advisories",    "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",          "category": "Government", "color": "#1a4480" },
+    { "name": "CISA News",          "url": "https://www.cisa.gov/news.xml",                                  "category": "Government", "color": "#0b5394" },
+    { "name": "CISA Blog",          "url": "https://www.cisa.gov/blog.xml",                                  "category": "Government", "color": "#3d7ab8" },
+    { "name": "NIST Cybersecurity", "url": "https://www.nist.gov/blogs/cybersecurity-insights/rss.xml",      "category": "Government", "color": "#00629b" },
+
+    { "name": "Malwarebytes Labs",  "url": "https://www.malwarebytes.com/blog/feed/index.xml",    "category": "Vendor research", "color": "#0d3ecc" },
+    { "name": "Google Security",    "url": "https://security.googleblog.com/feeds/posts/default", "category": "Vendor research", "color": "#188038" },
+
+    { "name": "Krebs on Security",    "url": "https://krebsonsecurity.com/feed/",   "category": "Analysis", "color": "#2b6cb0" },
+    { "name": "Schneier on Security", "url": "https://www.schneier.com/feed/atom/", "category": "Analysis", "color": "#4b5563" },
+    { "name": "Graham Cluley",        "url": "https://grahamcluley.com/feed/",      "category": "Analysis", "color": "#b91c6b" },
+
+    {
+      "_note": "Republishes the same URLs as CISA Advisories, so every recent item is de-duplicated away. Its only unique entries are alerts older than the all.xml window.",
+      "name": "CISA Alerts", "url": "https://www.cisa.gov/cybersecurity-advisories/alerts.xml",
+      "category": "Government", "color": "#2c5f9e", "enabled": false
+    },
+    {
+      "_note": "High volume and narrow — 30 ICS vendor advisories a day would crowd out everything else. Flip enabled to true if you want them.",
+      "name": "CISA ICS Advisories", "url": "https://www.cisa.gov/cybersecurity-advisories/ics-advisories.xml",
+      "category": "Government", "color": "#16528a", "enabled": false
+    },
+    {
+      "_note": "All of NIST, not just cybersecurity — expect construction safety and metrology alongside the security items.",
+      "name": "NIST News", "url": "https://www.nist.gov/news-events/news/rss.xml",
+      "category": "Government", "color": "#337ab7", "enabled": false
+    },
+    {
+      "_note": "Stopped responding entirely — kept here so it's obvious it was considered rather than missed.",
+      "name": "Sophos News", "url": "https://news.sophos.com/en-us/feed/",
+      "category": "Vendor research", "color": "#0a5ba0", "enabled": false
+    }
+  ]
+}
